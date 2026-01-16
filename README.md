@@ -26,7 +26,7 @@ This repository provides:
   Template to build local casebases and to standardize query inputs.
 
 - `Detailed Classification of Fetal Congenital Heart Disease in This Study (Updated January 2026).pdf`  
-  Disease subtype definitions (and mapping) used for lesion-set/subtype evaluation.
+  Disease subtype definitions used for lesion-set/subtype evaluation.
 
 - `requirements_main.txt`, `requirements_text_eval.txt`  
   Python dependencies for the two modules.
@@ -40,7 +40,7 @@ This repository provides:
 
 ## Environment Setup
 
-### 1) Create a virtual environment (recommended)
+### 1) Create a virtual environment
 
 Using conda:
 ```bash
@@ -80,10 +80,10 @@ Use **`Structured Data Standard Template with Expert Diagnosis.xlsx`** as the ca
 2. Populate evaluation/query cases using the same schema.
 3. Keep **unique case identifiers** and avoid duplicates across splits.
 
-### Leakage control (recommended for rigorous evaluation)
+### Leakage control
 To avoid hidden leakage when the retrieval base and evaluation cohorts come from related sources:
 - enforce **patient-level** or **pregnancy-level** de-duplication when multiple exams exist,
-- apply a clear **time split** if the study design is time-based (e.g., retrieval base contains only cases strictly earlier than evaluation),
+- apply a clear **time split** if the study design is time-based,
 - keep split manifests (case ID lists) and report the policy (near-duplicate matching, repeated exams, etc.).
 
 ---
