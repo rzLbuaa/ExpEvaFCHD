@@ -7,7 +7,7 @@ This repository provides:
 - **ExpEvaFCHD_eval.py**: evaluation utilities used in the paper
 - **Structured Data Standard Template with Expert Diagnosis.xlsx**: canonical schema template for structured measurements + expert reports
 - **Detailed Classification of Fetal Congenital Heart Disease in This Study (Updated January 2026).pdf**: disease subtype taxonomy used for evaluation
-- **Supplementary Material.zip**: supplementary figures/examples
+- **Supplementary Material.zip**: figures
 - **requirements_main.txt / requirements_text_eval.txt**: dependency sets for inference and evaluation
 
 > **Clinical disclaimer:** This code is for research and auditing purposes only. It is **not** a certified medical device and must not be used as the sole basis for clinical decision-making.
