@@ -1,0 +1,72 @@
+{
+  "schema_version": "illustrative-1",
+  "scope": "Manuscript-level disease-family labels; identifiers are illustrative public-release conventions.",
+  "source": "ExpEvaFCHD_Manuscript.pdf, Tables 1-2 and Methods: disease taxonomy and evaluation.",
+  "number_of_families": 7,
+  "manuscript_reported_entity_count": 73,
+  "entity_to_family_mapping_included": false,
+  "multi_label": true,
+  "normal_is_a_family": false,
+  "families": [
+    {
+      "id": "septal_defects",
+      "label": "Septal defects",
+      "label_zh": "间隔缺损",
+      "legacy_heading": "Septal defects",
+      "legacy_pdf_page": 1
+    },
+    {
+      "id": "great_vessels_aortic_arch",
+      "label": "Great vessels/aortic arch",
+      "label_zh": "大血管及主动脉弓异常",
+      "legacy_heading": "Great vessels/arch configuration",
+      "legacy_pdf_page": 1
+    },
+    {
+      "id": "venous_return_systemic_veins",
+      "label": "Venous return/systemic veins",
+      "label_zh": "静脉回流及体静脉异常",
+      "legacy_heading": "Venous return/systemic venous anomalies",
+      "legacy_pdf_page": 2
+    },
+    {
+      "id": "valves_outflow_tracts",
+      "label": "Valves/outflow tracts",
+      "label_zh": "瓣膜及流出道异常",
+      "legacy_heading": "Valves/outflow tract",
+      "legacy_pdf_page": 2
+    },
+    {
+      "id": "physiological_shunt_abnormalities",
+      "label": "Physiological shunt abnormalities",
+      "label_zh": "生理性分流异常",
+      "legacy_heading": "Physiologic shunt anomalies",
+      "legacy_pdf_page": 2
+    },
+    {
+      "id": "other_structural_abnormalities",
+      "label": "Other structural abnormalities",
+      "label_zh": "其他结构异常",
+      "legacy_heading": "Other structural anomalies",
+      "legacy_pdf_page": 3
+    },
+    {
+      "id": "cardiac_position_abnormalities",
+      "label": "Cardiac position abnormalities",
+      "label_zh": "心脏位置异常",
+      "legacy_heading": "Malposition",
+      "legacy_pdf_page": 3
+    }
+  ],
+  "legacy_reference": {
+    "file": "../references/Detailed_Classification_January_2026.pdf",
+    "status": "Unchanged historical prose taxonomy.",
+    "limitation": "The PDF lists subtype ranges, overlapping terms and provisional inclusions. It does not provide an enumerated, versioned 73-entity mapping. Family-heading correspondence does not establish exact entity equivalence."
+  },
+  "counting": {
+    "unit": "independent_case",
+    "family_counts": "A case contributes at most once to each family and may contribute to several families.",
+    "positive_cases": "Count distinct positive cases, independently of the sum of family memberships.",
+    "unknown_mapping": "Preserve an unresolved mapping explicitly; do not assign a family from the nearest name."
+  }
+}

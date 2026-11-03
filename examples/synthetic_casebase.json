@@ -1,0 +1,84 @@
+[
+  {
+    "schema_version": "illustrative-1",
+    "record_type": "reference",
+    "synthetic": true,
+    "case_id": "SYN_REF_001",
+    "patient_key": "SYN_PERSON_REF_001",
+    "site_id": "SYN_SITE_A",
+    "examination_date": "2025-02-14",
+    "measurements": {
+      "gestational_age_weeks": 26.0,
+      "cardiac_axis_deg": 45.0,
+      "left_ventricle_mm": 8.0,
+      "right_ventricle_mm": 8.2,
+      "aortic_isthmus_mm": 3.1,
+      "heart_rate_bpm": 145.0,
+      "rhythm_regular": true
+    },
+    "reference": {
+      "screening_label": "positive",
+      "disease_entities": [
+        "ventricular septal defect"
+      ],
+      "disease_families": [
+        "septal_defects"
+      ],
+      "expert_narrative": "Authored synthetic reference: ventricular septal defect is assigned to this fabricated record. The arbitrary measurements do not establish this preset label."
+    }
+  },
+  {
+    "schema_version": "illustrative-1",
+    "record_type": "reference",
+    "synthetic": true,
+    "case_id": "SYN_REF_002",
+    "patient_key": "SYN_PERSON_REF_002",
+    "site_id": "SYN_SITE_B",
+    "examination_date": "2025-02-14",
+    "measurements": {
+      "gestational_age_weeks": 26.0,
+      "cardiac_axis_deg": 45.0,
+      "left_ventricle_mm": 8.0,
+      "right_ventricle_mm": 8.2,
+      "aortic_isthmus_mm": null,
+      "heart_rate_bpm": 142.0,
+      "rhythm_regular": true
+    },
+    "reference": {
+      "screening_label": "negative",
+      "disease_entities": [],
+      "disease_families": [],
+      "expert_narrative": "Authored synthetic reference: no fetal congenital heart disease is assigned to this fabricated record. The negated phrase illustrates polarity handling."
+    }
+  },
+  {
+    "schema_version": "illustrative-1",
+    "record_type": "reference",
+    "synthetic": true,
+    "case_id": "SYN_REF_003",
+    "patient_key": "SYN_PERSON_REF_003",
+    "site_id": "SYN_SITE_A",
+    "examination_date": "2025-02-14",
+    "measurements": {
+      "gestational_age_weeks": 27.0,
+      "cardiac_axis_deg": 45.0,
+      "left_ventricle_mm": 8.5,
+      "right_ventricle_mm": 8.2,
+      "aortic_isthmus_mm": 3.1,
+      "heart_rate_bpm": 145.0,
+      "rhythm_regular": true
+    },
+    "reference": {
+      "screening_label": "positive",
+      "disease_entities": [
+        "ventricular septal defect",
+        "coarctation of the aorta"
+      ],
+      "disease_families": [
+        "septal_defects",
+        "great_vessels_aortic_arch"
+      ],
+      "expert_narrative": "Authored synthetic reference: ventricular septal defect and coarctation of the aorta are assigned together to demonstrate two family memberships in one fabricated case."
+    }
+  }
+]

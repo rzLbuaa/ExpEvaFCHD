@@ -1,0 +1,69 @@
+{
+  "release_type": "illustrative_pseudocode",
+  "source": "ExpEvaFCHD_Manuscript.pdf, Methods, pp. 30-34",
+  "alignment": {
+    "method": "deterministic_column_wise_alignment",
+    "example_alias_registry": "schemas/field_aliases.example.json",
+    "complete_schema_registry": null,
+    "complete_unit_registry": null,
+    "gestational_age_normalization": null,
+    "query_reference_labels_permitted": false,
+    "identifiers_are_retrieval_features": false
+  },
+  "retrieval": {
+    "top_k": 10,
+    "minimum_similarity": 0.22,
+    "threshold_boundary_policy": null,
+    "similarity": "weighted_standardized_distance_with_radial_basis_kernel",
+    "query_available_numerical_fields_only": true,
+    "normalization_statistics": null,
+    "statistics_fit_population": "reference_database_only",
+    "feature_weights": null,
+    "gamma_initialization": "median_distance_heuristic",
+    "gamma_value": null,
+    "gamma_exact_convention": null,
+    "candidate_missingness_policy": null,
+    "zero_variance_policy": null,
+    "tie_breaking_policy": null,
+    "source_balancing": {
+      "enabled": null,
+      "method_when_enabled": "hospital_round_robin"
+    },
+    "empty_threshold_result": "highest_similarity_case_with_low_similarity_flag",
+    "empty_candidate_pool": "insufficient_evidence",
+    "fallback_alone_establishes_abnormality": false
+  },
+  "evidence": {
+    "positive_support": "similarity_weighted_positive_evidence_proportion",
+    "concept_and_negation_registry": null,
+    "saws_definition": null,
+    "saws_threshold": null,
+    "binary_decision_policy": null,
+    "family_decision_policy": null
+  },
+  "generation": {
+    "illustrative_backend": "Qwen3-Max",
+    "model_parameters_updated": false,
+    "complete_prompt_templates": null,
+    "decoding_settings": null,
+    "schema_parsing_order": [
+      "structured_output",
+      "section_level",
+      "single_recommendation_block"
+    ],
+    "validate_after_every_fallback": true
+  },
+  "calibration": {
+    "raw_support_is_calibrated_probability": false,
+    "fixed_probability_mapping": null,
+    "mapping_fit_provenance": null,
+    "fit_on_validation_outcomes": false
+  },
+  "evaluation": {
+    "abstention_and_failed_output_scoring_policy": null,
+    "zero_denominator_result": null,
+    "family_set_interval_method": null,
+    "offline_report_quality_implementation": null
+  },
+  "missing_implementation_status": "author_supplied_dependencies_required"
+}

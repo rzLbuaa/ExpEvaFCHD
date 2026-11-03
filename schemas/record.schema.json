@@ -1,0 +1,289 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "record.schema.json",
+  "title": "ExpEvaFCHD illustrative synthetic record",
+  "description": "Public demonstration contract. This is not the complete research schema or a patient-data interchange standard.",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "record_type",
+    "synthetic",
+    "case_id",
+    "patient_key",
+    "site_id",
+    "examination_date",
+    "measurements",
+    "reference"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "illustrative-1"
+    },
+    "record_type": {
+      "enum": [
+        "query",
+        "reference"
+      ]
+    },
+    "synthetic": {
+      "const": true
+    },
+    "case_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "patient_key": {
+      "type": "string",
+      "minLength": 1
+    },
+    "site_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "examination_date": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "format": "date"
+    },
+    "measurements": {
+      "type": "object",
+      "properties": {
+        "gestational_age_weeks": {
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "cardiac_axis_deg": {
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "left_ventricle_mm": {
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "right_ventricle_mm": {
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "aortic_isthmus_mm": {
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "heart_rate_bpm": {
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "rhythm_regular": {
+          "type": [
+            "boolean",
+            "null"
+          ]
+        }
+      },
+      "additionalProperties": {
+        "type": [
+          "number",
+          "boolean",
+          "null"
+        ]
+      }
+    },
+    "reference": {
+      "oneOf": [
+        {
+          "type": "null"
+        },
+        {
+          "type": "object",
+          "required": [
+            "screening_label",
+            "disease_entities",
+            "disease_families",
+            "expert_narrative"
+          ],
+          "properties": {
+            "screening_label": {
+              "enum": [
+                "positive",
+                "negative"
+              ]
+            },
+            "disease_entities": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "minLength": 1
+              },
+              "uniqueItems": true
+            },
+            "disease_families": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "enum": [
+                  "septal_defects",
+                  "great_vessels_aortic_arch",
+                  "venous_return_systemic_veins",
+                  "valves_outflow_tracts",
+                  "physiological_shunt_abnormalities",
+                  "other_structural_abnormalities",
+                  "cardiac_position_abnormalities"
+                ]
+              },
+              "uniqueItems": true
+            },
+            "expert_narrative": {
+              "type": "string"
+            },
+            "annotation_status": {
+              "type": "string"
+            }
+          },
+          "additionalProperties": false,
+          "allOf": [
+            {
+              "if": {
+                "properties": {
+                  "screening_label": {
+                    "const": "negative"
+                  }
+                }
+              },
+              "then": {
+                "properties": {
+                  "disease_entities": {
+                    "maxItems": 0
+                  },
+                  "disease_families": {
+                    "maxItems": 0
+                  }
+                }
+              }
+            }
+          ]
+        }
+      ]
+    },
+    "metadata": {
+      "type": "object",
+      "description": "Synthetic audit metadata only; never included in retrieval vectors or prompts."
+    },
+    "provenance": {
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "record_type": {
+            "const": "query"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "reference": {
+            "type": "null"
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "record_type": {
+            "const": "reference"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "reference": {
+            "type": "object",
+            "required": [
+              "screening_label",
+              "disease_entities",
+              "disease_families",
+              "expert_narrative"
+            ],
+            "properties": {
+              "screening_label": {
+                "enum": [
+                  "positive",
+                  "negative"
+                ]
+              },
+              "disease_entities": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "uniqueItems": true
+              },
+              "disease_families": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "enum": [
+                    "septal_defects",
+                    "great_vessels_aortic_arch",
+                    "venous_return_systemic_veins",
+                    "valves_outflow_tracts",
+                    "physiological_shunt_abnormalities",
+                    "other_structural_abnormalities",
+                    "cardiac_position_abnormalities"
+                  ]
+                },
+                "uniqueItems": true
+              },
+              "expert_narrative": {
+                "type": "string"
+              },
+              "annotation_status": {
+                "type": "string"
+              }
+            },
+            "additionalProperties": false,
+            "allOf": [
+              {
+                "if": {
+                  "properties": {
+                    "screening_label": {
+                      "const": "negative"
+                    }
+                  }
+                },
+                "then": {
+                  "properties": {
+                    "disease_entities": {
+                      "maxItems": 0
+                    },
+                    "disease_families": {
+                      "maxItems": 0
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        }
+      }
+    }
+  ]
+}

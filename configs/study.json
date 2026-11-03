@@ -1,0 +1,81 @@
+{
+  "metadata_kind": "transcribed_manuscript_cohort_metadata",
+  "sources": [
+    "ExpEvaFCHD_Manuscript.pdf, Tables 1-2, pp. 4-5; Methods, pp. 29-30",
+    "ExpEvaFCHD_Supplementary.pdf, Tables S3-S4, pp. 9-18"
+  ],
+  "case_counting_unit": "unique_case",
+  "family_counting_unit": "case_family_membership",
+  "family_assignment": "multilabel",
+  "number_of_disease_families": 7,
+  "reported_number_of_specific_entities": 73,
+  "complete_entity_to_family_mapping_in_public_package": false,
+  "cohorts": [
+    {
+      "id": "fetalcardiodb",
+      "role": "retrospective_reference_database",
+      "total": 50093,
+      "negative": 42461,
+      "positive": 7632,
+      "positive_count_provenance": "derived_as_total_minus_negative",
+      "period_start_month": "2016-01",
+      "period_end_month": "2025-11",
+      "family_memberships": 11814
+    },
+    {
+      "id": "prospective",
+      "role": "single_center_validation",
+      "total": 1458,
+      "negative": 1118,
+      "positive": 340,
+      "period_start": "2025-12-01",
+      "period_end": "2026-03-01",
+      "family_memberships": 495,
+      "single_family_cases": 226,
+      "multiple_family_cases": 114,
+      "multiple_family_memberships": 269
+    },
+    {
+      "id": "multicenter",
+      "role": "multicenter_validation",
+      "total": 3370,
+      "negative": 3054,
+      "positive": 316,
+      "period_start": "2025-12-01",
+      "period_end": "2026-03-01",
+      "hospital_count": 15,
+      "province_count": 5,
+      "family_memberships": 430,
+      "single_family_cases": 229,
+      "multiple_family_cases": 87,
+      "multiple_family_memberships": 201
+    }
+  ],
+  "family_membership_counts": [
+    {"family_id": "septal_defects", "fetalcardiodb": 3374, "prospective": 139, "multicenter": 139},
+    {"family_id": "great_vessels_aortic_arch", "fetalcardiodb": 2957, "prospective": 116, "multicenter": 123},
+    {"family_id": "venous_return_systemic_veins", "fetalcardiodb": 1866, "prospective": 47, "multicenter": 34},
+    {"family_id": "valves_outflow_tracts", "fetalcardiodb": 1652, "prospective": 77, "multicenter": 45},
+    {"family_id": "physiological_shunt_abnormalities", "fetalcardiodb": 1005, "prospective": 63, "multicenter": 31},
+    {"family_id": "other_structural_abnormalities", "fetalcardiodb": 687, "prospective": 53, "multicenter": 56},
+    {"family_id": "cardiac_position_abnormalities", "fetalcardiodb": 273, "prospective": 0, "multicenter": 2}
+  ],
+  "multicenter_provinces": [
+    {"name": "Fujian", "total": 1691, "positive": 59, "negative": 1632},
+    {"name": "Ningxia", "total": 899, "positive": 64, "negative": 835},
+    {"name": "Guangdong", "total": 592, "positive": 144, "negative": 448},
+    {"name": "Anhui", "total": 96, "positive": 47, "negative": 49},
+    {"name": "Liaoning", "total": 92, "positive": 2, "negative": 90}
+  ],
+  "multicenter_service_capacity_groups": [
+    {"group": "specialist_referral_centers", "hospitals": 2},
+    {"group": "provincial_centers", "hospitals": 5},
+    {"group": "regional_hospitals", "hospitals": 5},
+    {"group": "routine_screening_and_referral_facilities", "hospitals": 3}
+  ],
+  "separation": {
+    "patient_overlap_between_database_and_validation": false,
+    "patient_overlap_between_validation_cohorts": false,
+    "repeat_visits_and_cross_institution_referrals_deduplicated": true
+  }
+}

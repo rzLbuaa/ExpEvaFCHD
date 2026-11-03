@@ -1,0 +1,121 @@
+{
+  "example_kind": "authored_synthetic_workflow",
+  "input": {
+    "schema_version": "illustrative-1",
+    "record_type": "query",
+    "synthetic": true,
+    "case_id": "SYN_QUERY_002",
+    "patient_key": "SYN_PERSON_QUERY_002",
+    "site_id": "SYN_SITE_C",
+    "examination_date": "2026-01-15",
+    "measurements": {
+      "gestational_age_weeks": 26.0,
+      "cardiac_axis_deg": 45.0,
+      "left_ventricle_mm": 8.0,
+      "right_ventricle_mm": 8.2,
+      "aortic_isthmus_mm": 3.1,
+      "heart_rate_bpm": 145.0,
+      "rhythm_regular": true
+    },
+    "reference": null
+  },
+  "evidence": {
+    "example_only": true,
+    "reference_case_ids": [
+      "SYN_REF_003"
+    ],
+    "positive_family_candidates": [
+      "septal_defects",
+      "great_vessels_aortic_arch"
+    ],
+    "polarity_examples": [],
+    "raw_support": null,
+    "similarity_scores": null,
+    "calibration_mapping": null,
+    "counting_example": {
+      "unique_positive_query_cases": 1,
+      "distinct_family_memberships": 2,
+      "assigned_disease_entities": 2
+    }
+  },
+  "output": {
+    "schema_version": "illustrative-1",
+    "synthetic": true,
+    "case_id": "SYN_QUERY_002",
+    "status": "illustrative",
+    "screening_label": "positive",
+    "disease_entities": [
+      "ventricular septal defect",
+      "coarctation of the aorta"
+    ],
+    "disease_families": [
+      "septal_defects",
+      "great_vessels_aortic_arch"
+    ],
+    "retrieval": {
+      "case_ids": [
+        "SYN_REF_003"
+      ],
+      "low_similarity_fallback": false,
+      "status": "manually_selected_example_references"
+    },
+    "risk": {
+      "raw_support": null,
+      "mapped_probability": null,
+      "mapping_status": "not_computed_in_authored_example"
+    },
+    "report": {
+      "findings": [
+        "The numerical measurements and reference records in this example are fabricated."
+      ],
+      "interpretation": "The displayed screening label and family set are preset solely to illustrate the output contract. They were not inferred from these measurements.",
+      "recommendation": "Illustrative report for reading the method and its data structures."
+    },
+    "attribution": [
+      {
+        "statement_id": "SYN_STATEMENT_001",
+        "statement": "The selected synthetic reference record carries the displayed family labels.",
+        "polarity": "positive_in_reference_record",
+        "measurement_fields": [],
+        "retrieved_case_ids": [
+          "SYN_REF_003"
+        ],
+        "support_status": "illustrative_reference_link_not_a_validated_query_diagnosis"
+      }
+    ],
+    "workflow": {
+      "physician_review_required": true,
+      "events": [
+        "authored_example",
+        "research_evidence_validation_not_executed"
+      ]
+    },
+    "provenance": {
+      "kind": "authored_example",
+      "computed_by_research_system": false,
+      "description": "Synthetic measurements, manually selected references and preset output labels. No clinical or experimental result is generated."
+    }
+  },
+  "trace": [
+    {
+      "stage": "alignment",
+      "status": "illustrated",
+      "operation": "Canonical measurement names and units are already supplied in the input."
+    },
+    {
+      "stage": "retrieval",
+      "status": "illustrated",
+      "operation": "Reference IDs are selected manually; no distance, fitted statistics or similarity score is computed."
+    },
+    {
+      "stage": "aggregation",
+      "status": "illustrated",
+      "operation": "The same case has two distinct family memberships. Neither family membership nor entity counts replace unique-case counts."
+    },
+    {
+      "stage": "generation_and_validation",
+      "status": "illustrated",
+      "operation": "The report and attribution links are authored fixtures, not model output or validated clinical evidence."
+    }
+  ]
+}

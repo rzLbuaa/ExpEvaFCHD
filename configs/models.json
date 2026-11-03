@@ -1,0 +1,63 @@
+{
+  "source": "ExpEvaFCHD_Supplementary.pdf, Table S17, p. 42",
+  "catalog_kind": "reported_backend_names_and_access_routes",
+  "model_parameters_updated": false,
+  "shared_evidence_processing": true,
+  "identical_final_labels_across_all_backends_claimed": false,
+  "backends": [
+    {
+      "name": "Kimi-K2",
+      "access": "locally_deployed_model",
+      "service": "Computing Center, Hangzhou International Campus, Beihang University",
+      "checkpoint_revision": null,
+      "quantization": null,
+      "decoding_parameters": null,
+      "endpoint": null
+    },
+    {
+      "name": "DeepSeek-V3.2",
+      "access": "locally_deployed_model",
+      "service": "Computing Center, Hangzhou International Campus, Beihang University",
+      "checkpoint_revision": null,
+      "quantization": null,
+      "decoding_parameters": null,
+      "endpoint": null
+    },
+    {
+      "name": "GLM-4.5",
+      "access": "locally_deployed_model",
+      "service": "Computing Center, Hangzhou International Campus, Beihang University",
+      "checkpoint_revision": null,
+      "quantization": null,
+      "decoding_parameters": null,
+      "endpoint": null
+    },
+    {
+      "name": "Llama-3.1-70B",
+      "access": "locally_deployed_model",
+      "service": "Computing Center, Hangzhou International Campus, Beihang University",
+      "checkpoint_revision": null,
+      "quantization": null,
+      "decoding_parameters": null,
+      "endpoint": null
+    },
+    {
+      "name": "Qwen3-Max",
+      "access": "test_api",
+      "service": "Test API services provided by the research team",
+      "checkpoint_revision": null,
+      "quantization": null,
+      "decoding_parameters": null,
+      "endpoint": null
+    },
+    {
+      "name": "GPT-5",
+      "access": "test_api",
+      "service": "Test API services provided by the research team",
+      "checkpoint_revision": null,
+      "quantization": null,
+      "decoding_parameters": null,
+      "endpoint": null
+    }
+  ]
+}

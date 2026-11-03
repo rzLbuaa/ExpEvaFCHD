@@ -1,0 +1,173 @@
+{
+  "status": "illustrative_experiment_plan",
+  "reference_system": {
+    "id": "full_qwen3_max",
+    "display_name": "Full Qwen3-Max",
+    "backend": "Qwen3-Max",
+    "configuration": "complete_manuscript_workflow"
+  },
+  "base_full_models": [
+    "Kimi-K2",
+    "DeepSeek-V3.2",
+    "GLM-4.5",
+    "Llama-3.1-70B",
+    "Qwen3-Max",
+    "GPT-5"
+  ],
+  "base_full_conditions": {
+    "base": "direct_base_model_generation",
+    "full": "complete_ExpEvaFCHD_workflow"
+  },
+  "comparators": [
+    {
+      "id": "ga_rules",
+      "display_name": "GA rules",
+      "kind": "baseline",
+      "operation": "gestational_age_rule_baseline"
+    },
+    {
+      "id": "knn",
+      "display_name": "kNN",
+      "kind": "baseline",
+      "operation": "nearest_neighbor_baseline"
+    },
+    {
+      "id": "logistic_regression",
+      "display_name": "Logistic regression",
+      "kind": "baseline",
+      "operation": "logistic_regression_baseline"
+    },
+    {
+      "id": "text_rag",
+      "display_name": "Text RAG",
+      "kind": "baseline",
+      "operation": "text_retrieval_augmented_generation"
+    },
+    {
+      "id": "structured_rag_no_validation",
+      "display_name": "Structured RAG no validation",
+      "kind": "comparator",
+      "operation": "structured_retrieval_without_evidence_validation"
+    },
+    {
+      "id": "no_ga_normalization",
+      "display_name": "No GA normalization",
+      "kind": "component_ablation",
+      "removed_component": "gestational_age_normalization"
+    },
+    {
+      "id": "no_polarity_control",
+      "display_name": "No polarity control",
+      "kind": "component_ablation",
+      "removed_component": "polarity_control"
+    },
+    {
+      "id": "no_saws_threshold",
+      "display_name": "No SAWS threshold",
+      "kind": "component_ablation",
+      "removed_component": "SAWS_score_threshold_constraint"
+    },
+    {
+      "id": "no_closure",
+      "display_name": "No closure",
+      "kind": "component_ablation",
+      "removed_component": "evidence_closure"
+    },
+    {
+      "id": "knn_template",
+      "display_name": "kNN + template",
+      "kind": "template_comparator",
+      "evidence_source": "knn_baseline"
+    },
+    {
+      "id": "matched_evidence_template",
+      "display_name": "Matched evidence + template",
+      "kind": "template_comparator",
+      "evidence_source": "same_evidence_and_decisions_as_full_qwen3_max",
+      "changed_component": "report_verbalization"
+    },
+    {
+      "id": "direct_qwen3_max",
+      "display_name": "Direct Qwen3-Max",
+      "kind": "direct_generation_baseline",
+      "backend": "Qwen3-Max"
+    }
+  ],
+  "paired_screening": {
+    "case_matching": "exact_case_identifier",
+    "test": "two_sided_exact_mcnemar",
+    "difference": "second_condition_minus_first_condition",
+    "difference_interval": {
+      "target_confidence": 0.95,
+      "discordant_proportion_interval": "clopper_pearson",
+      "individual_interval_confidence": 0.975,
+      "lower_bound": "improvement_lower_minus_deterioration_upper",
+      "upper_bound": "improvement_upper_minus_deterioration_lower"
+    },
+    "base_full_holm_family": {
+      "group_by": "validation_cohort",
+      "models": 6,
+      "outcomes": ["sensitivity", "specificity", "accuracy"],
+      "comparison_count": 18
+    },
+    "comparator_holm_family": {
+      "group_by": "validation_cohort",
+      "reference": "full_qwen3_max",
+      "outcomes": ["accuracy"],
+      "comparison_count": 12
+    },
+    "physician_comparison": {
+      "first_condition": "unaided",
+      "second_condition": "assisted",
+      "report_exact_p_separately": true
+    }
+  },
+  "family_evaluation": {
+    "taxonomy": "../schemas/disease_families.json",
+    "one_vs_rest_population": "all_cases_in_each_validation_cohort",
+    "family_set_population": "reference_positive_cases",
+    "family_set_strata": ["all_positive", "single_family", "multiple_families"],
+    "labels_per_case": "multiple_allowed",
+    "zero_denominator_result": null
+  },
+  "report_evaluation": {
+    "metrics": ["Cosine", "CosineTI", "Relevance", "Informativeness", "Validity"],
+    "strata": ["reference_negative", "reference_positive"],
+    "mean_interval": "student_t_95_percent",
+    "paired_test": "two_sided_wilcoxon_signed_rank",
+    "holm_family_definition": "author_supplied_analysis_plan",
+    "matched_evidence_ratings": ["readability_and_clarity", "clinical_content_completeness"]
+  },
+  "shared_risk_evaluation": {
+    "score_layers": ["raw_support_score", "fixed_mapping_probability"],
+    "metrics": ["brier", "ece", "citl", "intercept", "slope"],
+    "reliability_groups": "deciles",
+    "mapping_coefficients": null,
+    "mapping_provenance": "author_supplied_frozen_mapping"
+  },
+  "prevalence_standardization": {
+    "tabulated_prevalences": [0.005, 0.01, 0.02],
+    "figure_range": [0.001, 0.25],
+    "hold_fixed": ["source_cohort_sensitivity", "source_cohort_specificity"],
+    "interval_method": "monotonic_transformation_of_likelihood_ratio_intervals",
+    "new_validation_cohort": false
+  },
+  "author_supplied_dependencies": [
+    "paired_case_level_predictions_and_reference_labels",
+    "missing_prediction_and_abstention_policy",
+    "full_baseline_and_ablation_implementations",
+    "clinical_rule_and_threshold_artifacts",
+    "zero_cell_likelihood_ratio_policy",
+    "family_set_interval_method",
+    "offline_report_metric_assets_and_multiplicity_plan",
+    "frozen_probability_mapping_and_calibration_analysis_plan",
+    "physician_statement_support_and_workflow_annotations"
+  ],
+  "sources": [
+    "../references/ExpEvaFCHD_Manuscript.pdf#page=31",
+    "../references/ExpEvaFCHD_Manuscript.pdf#page=33",
+    "../references/ExpEvaFCHD_Supplementary.pdf#page=19",
+    "../references/ExpEvaFCHD_Supplementary.pdf#page=21",
+    "../references/ExpEvaFCHD_Supplementary.pdf#page=33"
+  ]
+}

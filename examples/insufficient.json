@@ -1,0 +1,91 @@
+{
+  "example_kind": "authored_synthetic_workflow",
+  "input": {
+    "schema_version": "illustrative-1",
+    "record_type": "query",
+    "synthetic": true,
+    "case_id": "SYN_QUERY_003",
+    "patient_key": "SYN_PERSON_QUERY_003",
+    "site_id": "SYN_SITE_C",
+    "examination_date": "2026-01-15",
+    "measurements": {
+      "gestational_age_weeks": null,
+      "cardiac_axis_deg": null,
+      "left_ventricle_mm": null,
+      "right_ventricle_mm": null,
+      "aortic_isthmus_mm": null,
+      "heart_rate_bpm": null,
+      "rhythm_regular": null
+    },
+    "reference": null
+  },
+  "evidence": {
+    "example_only": true,
+    "reference_case_ids": [],
+    "positive_family_candidates": [],
+    "raw_support": null,
+    "similarity_scores": null,
+    "calibration_mapping": null
+  },
+  "output": {
+    "schema_version": "illustrative-1",
+    "synthetic": true,
+    "case_id": "SYN_QUERY_003",
+    "status": "insufficient_evidence",
+    "screening_label": null,
+    "disease_entities": [],
+    "disease_families": [],
+    "retrieval": {
+      "case_ids": [],
+      "low_similarity_fallback": false,
+      "status": "no_usable_numerical_evidence"
+    },
+    "risk": {
+      "raw_support": null,
+      "mapped_probability": null,
+      "mapping_status": "not_computed_insufficient_evidence"
+    },
+    "report": {
+      "findings": [
+        "No numerical input is supplied in this fabricated example."
+      ],
+      "interpretation": "Insufficient evidence.",
+      "recommendation": "No screening label is assigned in this example."
+    },
+    "attribution": [],
+    "workflow": {
+      "physician_review_required": true,
+      "events": [
+        "no_usable_numerical_evidence",
+        "physician_review_required"
+      ]
+    },
+    "provenance": {
+      "kind": "authored_example",
+      "computed_by_research_system": false,
+      "description": "Synthetic measurements, manually selected references and preset output labels. No clinical or experimental result is generated."
+    }
+  },
+  "trace": [
+    {
+      "stage": "alignment",
+      "status": "illustrated",
+      "operation": "Every numerical field is missing."
+    },
+    {
+      "stage": "retrieval",
+      "status": "skipped_in_example",
+      "operation": "No usable numerical evidence is available."
+    },
+    {
+      "stage": "aggregation",
+      "status": "skipped_in_example",
+      "operation": "No reference evidence is assigned."
+    },
+    {
+      "stage": "generation_and_validation",
+      "status": "insufficient_evidence",
+      "operation": "The example preserves a null label and empty family/entity sets."
+    }
+  ]
+}

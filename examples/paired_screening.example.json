@@ -1,0 +1,51 @@
+{
+  "example_kind": "authored_synthetic_pairing_fixture",
+  "reported_study_results": false,
+  "label_encoding": {
+    "negative": 0,
+    "positive": 1
+  },
+  "rows": [
+    {
+      "case_id": "SYN_PAIR_001",
+      "reference_label": 1,
+      "base_label": 0,
+      "full_label": 1,
+      "reference_families": [
+        "septal_defects"
+      ],
+      "full_families": [
+        "septal_defects"
+      ]
+    },
+    {
+      "case_id": "SYN_PAIR_002",
+      "reference_label": 1,
+      "base_label": 1,
+      "full_label": 0,
+      "reference_families": [
+        "septal_defects",
+        "great_vessels_aortic_arch"
+      ],
+      "full_families": []
+    },
+    {
+      "case_id": "SYN_PAIR_003",
+      "reference_label": 0,
+      "base_label": 0,
+      "full_label": 0,
+      "reference_families": [],
+      "full_families": []
+    },
+    {
+      "case_id": "SYN_PAIR_004",
+      "reference_label": 0,
+      "base_label": 1,
+      "full_label": 1,
+      "reference_families": [],
+      "full_families": [
+        "septal_defects"
+      ]
+    }
+  ]
+}

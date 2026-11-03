@@ -1,0 +1,117 @@
+{
+  "schema_version": "illustrative-1",
+  "scope": "Selected exact-header aliases for illustration; the complete validated mapping is not included.",
+  "aliases": [
+    {
+      "field": "gestational_age_weeks",
+      "unit": "weeks",
+      "headers": [
+        "孕周",
+        "Gestational week",
+        "Gestational age (weeks)"
+      ]
+    },
+    {
+      "field": "cardiac_axis_deg",
+      "unit": "degrees",
+      "headers": [
+        "心轴(°)",
+        "Cardiac axis (deg)"
+      ]
+    },
+    {
+      "field": "left_ventricle_mm",
+      "unit": "mm",
+      "headers": [
+        "左室(mm)",
+        "Left ventricle (mm)"
+      ]
+    },
+    {
+      "field": "right_ventricle_mm",
+      "unit": "mm",
+      "headers": [
+        "右室(mm)",
+        "Right ventricle (mm)"
+      ]
+    },
+    {
+      "field": "aortic_isthmus_mm",
+      "unit": "mm",
+      "headers": [
+        "主动脉峡部(mm)",
+        "Aortic isthmus (mm)"
+      ]
+    },
+    {
+      "field": "aorta_diameter_mm",
+      "unit": "mm",
+      "headers": [
+        "主动脉(mm)",
+        "Aorta diameter (mm)"
+      ]
+    },
+    {
+      "field": "aortic_flow_velocity_cm_s",
+      "unit": "cm/s",
+      "headers": [
+        "主动脉(cm/s)",
+        "主动脉流速(cm/s)",
+        "Aortic flow velocity (cm/s)"
+      ]
+    },
+    {
+      "field": "pulmonary_artery_mm",
+      "unit": "mm",
+      "headers": [
+        "肺动脉(mm)",
+        "Pulmonary artery diameter (mm)"
+      ]
+    },
+    {
+      "field": "pulmonary_flow_velocity_cm_s",
+      "unit": "cm/s",
+      "headers": [
+        "肺动脉(cm/s)",
+        "肺动脉流速(cm/s)",
+        "Pulmonary artery flow velocity (cm/s)"
+      ]
+    },
+    {
+      "field": "heart_rate_bpm",
+      "unit": "beats/min",
+      "headers": [
+        "胎心率(次/分)",
+        "Fetal heart rate (beats/min)"
+      ]
+    },
+    {
+      "field": "rhythm_regular",
+      "unit": "boolean",
+      "headers": [
+        "律齐",
+        "Heart rhythm regular"
+      ]
+    }
+  ],
+  "ambiguous_headers": [
+    {
+      "header": "主动脉",
+      "handling": "Require anatomy and unit context; do not map automatically to aortic isthmus."
+    },
+    {
+      "header": "肺动脉",
+      "handling": "Require unit context to distinguish diameter from flow velocity."
+    },
+    {
+      "header": "心轴(mm)",
+      "handling": "Historical header error. Confirm that the recorded quantity is an angle before mapping to cardiac_axis_deg."
+    },
+    {
+      "header": "Spindle (mm)",
+      "handling": "Historical mistranslation of cardiac axis. Confirm semantics and source units before mapping."
+    }
+  ],
+  "unit_policy": "Do not infer a numeric conversion from a renamed header. Unknown or incompatible units require explicit source resolution.",
+  "missing_policy": "Missing or unparseable measurements remain null; do not substitute zero."
+}
